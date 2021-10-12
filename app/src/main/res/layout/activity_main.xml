@@ -13,7 +13,9 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#000000"
         tools:context=".MainActivity">
+
         <ImageView
             android:id="@+id/memeImageView"
             android:layout_width="0dp"
@@ -22,29 +24,30 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="@string/meme" />
 
         <Button
             android:id="@+id/shareButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:onClick="onClickShare"
             android:padding="32dp"
-            android:text="Share"
+            android:text="@string/share"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/guideline"
-            android:onClick="onClickShare"/>
+            app:layout_constraintRight_toLeftOf="@id/guideline" />
 
         <Button
             android:id="@+id/nextButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:onClick="@{()-> mainViewModel.nextMeme()}"
             android:padding="32dp"
-            android:text="Next"
+            android:text="@string/next"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toRightOf="@id/guideline"
-            android:onClick = "@{()-> mainViewModel.nextMeme()}"/>
+            app:layout_constraintRight_toRightOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -52,7 +55,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
 
-            app:layout_constraintGuide_percent="0.5"/>
+            app:layout_constraintGuide_percent="0.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
